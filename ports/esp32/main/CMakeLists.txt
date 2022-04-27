@@ -120,7 +120,6 @@ set(IDF_COMPONENTS
     tcpip_adapter
     ulp
     vfs
-    can
     xtensa
 )
 
