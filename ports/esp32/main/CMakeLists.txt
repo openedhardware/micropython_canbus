@@ -63,6 +63,7 @@ set(MICROPY_SOURCE_PORT
     ${PROJECT_DIR}/machine_i2c.c
     ${PROJECT_DIR}/machine_i2s.c
     ${PROJECT_DIR}/machine_uart.c
+    ${PROJECT_DIR}/machine_can.c
     ${PROJECT_DIR}/modmachine.c
     ${PROJECT_DIR}/modnetwork.c
     ${PROJECT_DIR}/network_lan.c
@@ -119,6 +120,7 @@ set(IDF_COMPONENTS
     tcpip_adapter
     ulp
     vfs
+    can
     xtensa
 )
 

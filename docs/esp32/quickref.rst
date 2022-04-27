@@ -475,6 +475,24 @@ has the same methods as software I2C above::
     i2c = I2C(0)
     i2c = I2C(1, scl=Pin(5), sda=Pin(4), freq=400000)
 
+
+CAN bus
+-------
+
+See :ref:`esp32.CAN <esp32.CAN>` ::
+
+The CAN driver is based on hardware implementation.
+Any available output-capablepins can be used for SCL and SDA.
+The driver is accessed via the :ref:`machine.CAN <machine.CAN>` class::
+
+    from machine import CAN
+
+    # construct a CAN bus
+    bus = CAN(0, extframe=True, mode=CAN.LOOPBACK, baudrate=CAN.BAUDRATE_500k)
+
+    bus.send([0,1,2,3], 0x86) #Send the message
+    bus.recv()                #Read the message sent
+
 I2S bus
 -------
 

@@ -70,6 +70,7 @@
 #define MICROPY_PY_UTIMEQ                   (1)
 #define MICROPY_PY_UHASHLIB_SHA1            (1)
 #define MICROPY_PY_UHASHLIB_SHA256          (1)
+#define MICROPY_HW_ENABLE_CAN               (1)
 #define MICROPY_PY_UCRYPTOLIB               (1)
 #define MICROPY_PY_URANDOM_SEED_INIT_FUNC   (esp_random())
 #define MICROPY_PY_UOS_INCLUDEFILE          "ports/esp32/moduos.c"
