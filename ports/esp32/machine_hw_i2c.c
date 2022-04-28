@@ -21,6 +21,9 @@
 #define I2C_SLAVE_ADDR_DEFAULT		32		// default slave address
 #define I2C_SLAVE_MUTEX_TIMEOUT		(500 / portTICK_PERIOD_MS)
 #define I2C_SLAVE_TASK_STACK_SIZE   832
+#define I2C_SLAVE_MAX_BUFFER_LENGTH 65535
+#define CONFIG_MICROPY_TASK_PRIORITY 5
+#define MP_OBJ_IS_METH(o) (MP_OBJ_IS_OBJ(o) && (((mp_obj_base_t*)MP_OBJ_TO_PTR(o))->type->name == MP_QSTR_bound_method))
 
 #define I2C_SLAVE_CBTYPE_NONE       0
 #define I2C_SLAVE_CBTYPE_ADDR       1
@@ -834,7 +837,7 @@ STATIC mp_obj_t mp_machine_i2c_readfrom_mem(size_t n_args, const mp_obj_t *pos_a
     // Get read length
     int n = mp_obj_get_int(args[ARG_n].u_obj);
     if (n > 0) {
-    	uint32_t addr = (uint32_t)mp_obj_get_int64(args[ARG_memaddr].u_obj);
+    	uint32_t addr = (uint32_t)mp_obj_get_int(args[ARG_memaddr].u_obj);
     	uint8_t memlen = getMemAdrLen(args[ARG_memlen].u_int, addr);
 
         uint8_t *buf = heap_caps_malloc(n, MALLOC_CAP_8BIT | MALLOC_CAP_INTERNAL);
